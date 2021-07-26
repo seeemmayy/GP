@@ -143,6 +143,8 @@ lockdown = lockdowndata.groupby(['year','week_number']).mean()
 lockdown['Lockdown'] = lockdown['Lockdown'].apply(lambda x: 1 if x >= 0.5 else 0)
 lockdown = lockdown.reset_index()
 
+end_remove=pd.to_datetime('2017-01-01')
+newdf1 = df.loc[(df['date'] > end_remove)]
 
 dfdog = newdf1.groupby(['year','week_number']).sum()
 dfdog = dfdog.reset_index()
