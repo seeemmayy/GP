@@ -135,7 +135,9 @@ def plotPrediction(ax,X,y,N,pred,mindate,lag=None,prev_mult=1,plot_gp=False):
         ax.scatter(x[orange],pbar[orange],c='orange',s=8,alpha=0.5,label='0.01<p<=0.05')
         ax.scatter(x[red],pbar[red],c='red',s=8,alpha=0.5,label='p<=0.01')
         
-        
+
+df['week_number'] = df['date'].dt.week
+df['year'] = pd.DatetimeIndex(df['date']).year
         
 lockdowndata = pd.read_csv(" """ where the file is saved """ ")
 
